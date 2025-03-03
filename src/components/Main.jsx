@@ -1,6 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
-import NavbarComponent from "./NavbarComponent/NavbarComponent";
 import Footer from "./Footer/Footer";
+import NavbarComponent from "./NavbarComponent/NavbarComponent";
 
 
 const Main = () => {
@@ -9,7 +9,7 @@ const Main = () => {
     const shouldHideHeaderFooter = hideHeaderFooter.includes(location.pathname);
     return (
         <div>
-            {!shouldHideHeaderFooter && <NavbarComponent />}
+            {!shouldHideHeaderFooter && <NavbarComponent/>}
             <Outlet />
             {!shouldHideHeaderFooter && <Footer />}
 
