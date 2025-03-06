@@ -1,8 +1,6 @@
-import { useEffect, useRef } from "react";
-import { Carousel, Button } from "react-bootstrap";
-import { motion } from "framer-motion";
-import gsap from "gsap";
+import { Button } from "react-bootstrap";
 import './Banner.css'
+import Carousel from 'react-bootstrap/Carousel';
 
 const slides = [
   {
@@ -25,70 +23,28 @@ const slides = [
   }
 ];
 
+
 const Banner = () => {
 
-    const titleRef = useRef([]);
-    const descRef = useRef([]);
-    const btnRef = useRef([]);
-  
-    useEffect(() => {
-      slides.forEach((_, index) => {
-        gsap.fromTo(
-          titleRef.current[index],
-          { y: 50, opacity: 0 },
-          { y: 0, opacity: 1, duration: 1, delay: 0.3 * index }
-        );
-        gsap.fromTo(
-          descRef.current[index],
-          { y: 50, opacity: 0 },
-          { y: 0, opacity: 1, duration: 1, delay: 0.5 * index }
-        );
-        gsap.fromTo(
-          btnRef.current[index],
-          { scale: 0 },
-          { scale: 1, duration: 0.5, delay: 0.7 * index }
-        );
-      });
-    }, []);
-    
-    
-    return (
-    
-        <Carousel fade interval={5000} className="noorflix-carousel">
-          {slides.map((slide, index) => (
-            <Carousel.Item key={index} className="carousel-item">
-              <img className="d-block w-100" src={slide.image} alt={slide.title} />
-              <Carousel.Caption>
-                <motion.h2
-                  ref={(el) => (titleRef.current[index] = el)}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1 }}
-                >
-                  {slide.title}
-                </motion.h2>
-                <motion.p
-                  ref={(el) => (descRef.current[index] = el)}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, delay: 0.2 }}
-                >
-                  {slide.description}
-                </motion.p>
-                <motion.div
-                  ref={(el) => (btnRef.current[index] = el)}
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                >
-                  <Button variant="primary">{slide.buttonText}</Button>
-                </motion.div>
-              </Carousel.Caption>
-            </Carousel.Item>
-          ))}
-        </Carousel>
-      
-    );
+  return (
+
+
+    <Carousel  className="noorflix-carousel">
+      {slides.map((slide, index) => (
+        <Carousel.Item key={index} className="carousel-item">
+          <img className="d-block w-100" src={slide.image} alt={slide.title} />
+          <Carousel.Caption>
+            <h2 className="banner-title">{slide.title}</h2>
+            <p className="banner-desc">{slide.description}</p>
+            <Button className="banner-btn">{slide.buttonText}</Button>
+          </Carousel.Caption>
+        </Carousel.Item>
+      ))}
+    </Carousel>
+
+  );
 };
+
+
 
 export default Banner;

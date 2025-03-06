@@ -1,0 +1,13 @@
+.pagination .page-item .page-link{
+    color:crimson !important;
+    border-color: rgba(128, 128, 128, 0.219) !important;
+}
+  
+  .pagination .page-item.active .page-link {
+    background-color: crimson !important;
+    border-color: crimson !important;
+    color: white !important; 
+  }
+  
+
+

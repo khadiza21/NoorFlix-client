@@ -4,6 +4,8 @@ import Home from "../../pages/Home";
 import About from "../../pages/About";
 import Notfound from "../../pages/Notfound";
 import Contact from "../../pages/Contact";
+import MovieDetails from "../MovieDetails/MovieDetails";
+import Movies from "../Movies/Movies";
 
 export const router = createBrowserRouter([
     {
@@ -24,8 +26,16 @@ export const router = createBrowserRouter([
           element: <About />
         },
         {
+          path: '/all-movies',
+          element: <Movies />
+        },
+        {
           path: '/contact',
           element: <Contact />
+        },
+        {
+          path: '/movies/:id',
+          element: <MovieDetails />
         },
       ]
     },
