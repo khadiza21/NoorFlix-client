@@ -1,30 +1,17 @@
-import { useState, useEffect, useRef } from "react";
-import { Navbar, Nav, Button, Container } from "react-bootstrap";
-import { gsap } from "gsap";
-import { motion } from "framer-motion";
-import './NavbarCompopnent.css'
+import { useState, useEffect } from "react";
+import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import './NavbarCompopnent.css'
 
 const NavbarComponent = () => {
-    const navRef = useRef(null);
+  
     const [showName, setShowName] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            if (navRef.current) {
-                gsap.from(navRef.current, { opacity: 0, y: -50, duration: 1, ease: "power3.out" });
-            }
-        }, 200);
-        return () => clearTimeout(timer);
-    }, []);
-
-
-
-
-    useEffect(() => {
         const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
+            console.log(window.scrollY);
+            setScrolled(window.scrollY > 50); 
         };
 
         window.addEventListener("scroll", handleScroll);
@@ -32,11 +19,13 @@ const NavbarComponent = () => {
     }, []);
 
     return (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
-            <div ref={navRef}>
-                <Navbar expand="lg" bg="dark" variant="dark" 
-                className={` py-3 custom-navbar ${scrolled ? "sticky" : ""} shadow-lg`}
-             >
+      
+                <Navbar
+                    expand="lg"
+                    bg="dark"
+                    variant="dark"
+                    className={`py-3 custom-navbar ${scrolled ? "sticky" : ""} shadow-lg`}
+                >
                     <Container>
                         <Navbar.Brand to="/home" className="fw-bold text-danger">NoorFlix</Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -64,14 +53,12 @@ const NavbarComponent = () => {
                                             style={{ cursor: "pointer" }}
                                         />
                                         {showName && (
-                                            <motion.div
-                                                initial={{ opacity: 0, y: -10 }}
-                                                animate={{ opacity: 1, y: 0 }}
+                                            <div
                                                 className="position-absolute bg-white text-dark p-2 rounded shadow"
                                                 style={{ top: "50px", left: "50%", transform: "translateX(-50%)" }}
                                             >
                                                 Khadiza
-                                            </motion.div>
+                                            </div>
                                         )}
                                     </div>
                                     <Button variant="danger" className="ms-3 fw-bold">
@@ -82,10 +69,10 @@ const NavbarComponent = () => {
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>
-            </div>
-        </motion.div>
+          
     );
 };
+
 
 
 

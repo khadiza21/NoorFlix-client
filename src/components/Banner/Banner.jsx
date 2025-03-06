@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { Carousel, Button } from "react-bootstrap";
 import { motion } from "framer-motion";
 import gsap from "gsap";
+import './Banner.css'
 
 const slides = [
   {
@@ -52,7 +53,7 @@ const Banner = () => {
     
     
     return (
-        <div style={{ position: "relative", zIndex: 1}}>  
+    
         <Carousel fade interval={5000} className="noorflix-carousel">
           {slides.map((slide, index) => (
             <Carousel.Item key={index} className="carousel-item">
@@ -86,7 +87,7 @@ const Banner = () => {
             </Carousel.Item>
           ))}
         </Carousel>
-      </div>
+      
     );
 };
 

@@ -4,12 +4,16 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   } */
   .sticky {
-    position: fixed;
+    position: fixed;  /* Fixes the navbar to the top */
     top: 0;
     left: 0;
-    width: 100%;
-    z-index: 1000;
+    right: 0;
+    z-index: 9999;  /* Ensures it stays on top */
+    width: 100%;  /* Ensure the navbar spans across the full width */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
+    transition: top 0.3s; /* Optional: Smooth transition effect */
 }
+
 
   /* .custom-navbar {
     transition: all 0.3s ease-in-out;
