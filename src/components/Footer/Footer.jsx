@@ -40,12 +40,12 @@ const Footer = () => {
           <Col md={4} className="mb-3 text-center text-md-start">
             <h5>Follow Us</h5>
             <div className="d-flex justify-content-center justify-content-md-start gap-3">
-              <FaFacebook size={24} />
-              <FaTwitter size={24} />
-              <FaInstagram size={24} />
-              <FaPinterest size={24} />
-              <FaYoutube size={24} />
-              <FaLinkedin size={24} />
+              <a target="_blank" href="https://www.facebook.com/">    <FaFacebook size={24} /> </a>
+              <a target="_blank" href="https://x.com/">    <FaTwitter size={24} /> </a>
+              <a target="_blank" href="https://www.instagram.com/">    <FaInstagram size={24} /> </a>
+              <a target="_blank" href="https://www.pinterest.com/">    <FaPinterest size={24} /> </a>
+              <a target="_blank" href="https://www.youtube.com/">    <FaYoutube size={24} /> </a>
+              <a target="_blank" href="https://www.linkedin.com/">    <FaLinkedin size={24} /> </a>
             </div>
           </Col>
         </Row>

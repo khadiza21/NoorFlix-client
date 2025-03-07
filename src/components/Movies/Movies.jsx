@@ -30,7 +30,7 @@ const Movies = () => {
     return (
       <div className="bg-black py-5 ">
         <Container className="text-white">
-          <h2 className="text-center mb-4 text-danger pb-5">Featured Movies</h2>
+          
           <Row className="justify-content-center">
             {currentMovies.map((movie) => (
               <Col key={movie._id} md={4} sm={6} className="mb-4 d-flex align-items-stretch">

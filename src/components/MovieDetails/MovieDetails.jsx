@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { Container, Card, Spinner } from "react-bootstrap";
+import { useNavigate, useParams } from "react-router-dom";
+import { Container, Card, Spinner, Button } from "react-bootstrap";
 
 const MovieDetails = () => {
     const { id } = useParams();
     const [movie, setMovie] = useState(null);
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch(`http://localhost:5000/movies/${id}`)
@@ -35,6 +36,12 @@ const MovieDetails = () => {
                         </Card.Text>
                     </Card.Body>
                 </Card>
+
+                <div className="text-center mt-4">
+        <Button variant="danger" size="lg" onClick={() => navigate("/all-movies")}>
+          See All Movies
+        </Button>
+      </div>
             </Container>
         </div>
     );

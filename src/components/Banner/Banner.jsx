@@ -1,6 +1,7 @@
 import { Button } from "react-bootstrap";
 import './Banner.css'
 import Carousel from 'react-bootstrap/Carousel';
+import banner from '../../assets/banner.jpg'
 
 const slides = [
   {
@@ -13,13 +14,13 @@ const slides = [
     title: "Unlimited Streaming",
     description: "Enjoy your favorite content anytime, anywhere.",
     buttonText: "Get Started",
-    image: "https://tmbroadcast.com/wp-content/uploads/blue-tv-User-Interface-TV-Tablet-Smartphone.jpg"
+    image: "https://static.vecteezy.com/system/resources/previews/002/236/321/non_2x/movie-trendy-banner-vector.jpg"
   },
   {
     title: "Exclusive Content",
     description: "Watch exclusive shows only on Noorflix.",
     buttonText: "Join Now",
-    image: "https://tmbroadcast.com/wp-content/uploads/blue-tv-User-Interface-TV-Tablet-Smartphone.jpg"
+    image: banner
   }
 ];
 
