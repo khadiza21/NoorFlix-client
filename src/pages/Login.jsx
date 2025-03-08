@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button, Container, Form, InputGroup } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
+import { AuthContext } from "../components/Provider/AuthProvider";
 
 const Login = () => {
     const {
@@ -13,16 +14,42 @@ const Login = () => {
     } = useForm();
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
+    const { signInUser, signWithGoogle, setUser } = useContext(AuthContext);
 
     const onSubmit = (data) => {
-        // Dummy authentication (replace with actual API request)
-        if (data.email === "test@example.com" && data.password === "password123") {
-            toast.success("Login successful!");
-            navigate("/");
-        } else {
-            toast.error("Invalid email or password");
-        }
+
+        const { email, password } = data;
+        signInUser(email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                setUser(user);
+                navigate(location.state?.from || "/", { replace: true });
+                toast.success('Login Successful! Redirecting...');
+
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode, errorMessage);
+            });
+
     };
+
+
+    const handleGoogleSignIn = () => {
+
+        signWithGoogle()
+            .then((result) => {
+                const user = result.user;
+                setUser(user)
+                toast.success("Google Sign-In Successful!");
+                navigate(location?.state ? location.state : '/')
+            }).catch((error) => {
+                console.log(error);
+                toast.error(error.message)
+            });
+    }
+
 
     return (
         <Container className="d-flex justify-content-center align-items-center min-vh-100">
@@ -54,16 +81,16 @@ const Login = () => {
                         {errors.password && <p className="text-danger">{errors.password.message}</p>}
                     </Form.Group>
 
-                        <a href="#" className="text-secondary">Forgot Password?</a>
-                      
+                    <a href="#" className="text-secondary">Forgot Password?</a>
+
 
                     <Button variant="light" className="fw-bold w-100 mt-3" type="submit">Login</Button>
 
 
                     <div className="text-center mt-3 text-light">
-                     
-                        <Button variant="danger" className="w-100" >
-                        <FaGoogle />  Sign in with Google
+
+                        <Button onClick={handleGoogleSignIn} variant="danger" className="w-100" >
+                            <FaGoogle />  Sign in with Google
                         </Button>
                         <p className="my-2">
                             Don't have any account? <a href="/register" className="text-secondary">Register</a>

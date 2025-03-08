@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { Container, Form, Button, Card, InputGroup } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -7,9 +7,10 @@ import { AuthContext } from "../components/Provider/AuthProvider";
 import { toast } from "react-toastify";
 
 const Register = () => {
+
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
-    const { createUser } = useContext(AuthContext);
+    const { createUser, signOutUser, signWithGoogle } = useContext(AuthContext);
 
     const {
         register,
@@ -17,44 +18,73 @@ const Register = () => {
         formState: { errors },
     } = useForm();
 
+
     const onSubmit = (data) => {
         const { name, email, password, photo } = data;
         console.log(data);
-        createUser(email,password,photo,name)
+        createUser(email, password, photo, name)
             .then(result => {
                 console.log(result.user);
-                 const newUser = {name,email,photo, password}
-                 fetch('http://localhost:5000/users',
+                const newUser = { name, email, photo }
+                fetch('http://localhost:5000/users',
                     {
-                     method:'POST',
-                     headers: {
-                        'content-type':'application/json'
-                     } ,
-                     body:JSON.stringify(newUser)
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(newUser)
                     })
                     .then(res => res.json())
                     .then(data => {
-                        console.log('user created to db',data);
-                        if(data.insertedId){
+                        console.log('user created to db', data);
+                        if (data.insertedId) {
                             console.log('user created in db');
                         }
                     })
 
-                    toast.success("Registration Successful!");
-                    //navigate("/");
+                toast.success("Registration Successful!");
+                navigate(location?.state ? location.state : '/')
 
             })
             .catch(error => {
                 console.log('error', error);
                 toast.error(error.message)
             })
-     
+
     };
 
-    const handleGoogleLogin = () => {
-      
-        toast.success("Google Login Successful!");
-        navigate("/");
+    const handleGoogleSignin = () => {
+        signWithGoogle()
+            .then((result) => {
+                const user = result.user;
+                console.log("Google login successful:", user);
+
+                setUser(user);
+                const newUser = {
+                    name: user.displayName,
+                    email: user.email,
+                    photo: user.photoURL,
+                };
+
+                fetch("http://localhost:5000/users", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(newUser),
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log("User saved to database:", data);
+                    })
+                    .catch((err) => console.log("Database error:", err));
+
+                toast.success("Google Login Successful!");
+                navigate(location?.state ? location.state : '/')
+            })
+            .catch((error) => {
+                console.error("Google Login Error:", error);
+                toast.error(error.message);
+            });
+
     };
 
     return (
@@ -146,8 +176,8 @@ const Register = () => {
 
                 <div className="text-center mt-3">
 
-                    <Button variant="light" className="w-100" onClick={handleGoogleLogin}>
-                    <FaGoogle />     Sign in with Google
+                    <Button variant="light" className="w-100" onClick={handleGoogleSignin}>
+                        <FaGoogle />     Sign in with Google
                     </Button>
                     <p className="my-2 text-light">
                         Already have an account? <a className="text-secondary" href="/login">Login</a>

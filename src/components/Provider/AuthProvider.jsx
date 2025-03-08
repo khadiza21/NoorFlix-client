@@ -1,13 +1,13 @@
 import { createContext, useState } from "react";
 import auth from "../../firebase/firebase.init";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true)
-
+    const provider = new GoogleAuthProvider();
 
 
     const createUser = async (email, password, photoURL, name) => {
@@ -15,6 +15,7 @@ const AuthProvider = ({ children }) => {
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
+            setUser(user);
             await updateProfile(user, {
                 photoURL: photoURL,
                 displayName: name,
@@ -27,14 +28,37 @@ const AuthProvider = ({ children }) => {
             } else {
                 throw new Error('An error occurred while creating the user. Please try again later.');
             }
-        }finally {
+        } finally {
             setLoading(false)
         }
 
     }
 
+
+    const signInUser = (email, password) => {
+        setLoading(true)
+        return signInWithEmailAndPassword(auth, email, password);
+    }
+
+
+    const signOutUser = () => {
+        setLoading(true)
+        return signOut(auth)
+    }
+
+    const signWithGoogle = () => {
+        return signInWithPopup(auth, provider);
+    }
+
+
     const userInfo = {
-        user, loading, createUser
+        setUser,
+        user,
+        loading,
+        createUser,
+        signInUser,
+        signOutUser,
+        signWithGoogle,
     }
 
     return (
