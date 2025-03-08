@@ -1,10 +1,10 @@
-import React from 'react';
+import AboutContent from "../components/About/AboutContent";
+
+
 
 const About = () => {
     return (
-        <div>
-           <h1>about</h1> 
-        </div>
+     <AboutContent />
     );
 };
 

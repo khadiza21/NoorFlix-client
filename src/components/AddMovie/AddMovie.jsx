@@ -12,13 +12,36 @@ const AddMovie = () => {
         handleSubmit,
         setValue,
         formState: { errors },
-        reset
-    } = useForm();
+        reset,
+        watch,
+        setError,
+        clearErrors
+    } = useForm({
+        defaultValues: {
+            rating: 0,
+        }
+    });
+
+
+    const ratingValue = watch("rating"); 
+
+
+    const handleRating = (rate) => {
+        setValue("rating", rate, { shouldValidate: true }); 
+        clearErrors("rating"); 
+    };
+
+
 
     const onSubmit = async (data) => {
         data.rating = Number(data.rating);
         data.duration = Number(data.duration);
         data.genre = [data.genre];
+
+        if (data.rating === 0) {
+            setError("rating", { type: "manual", message: "Rating is required!" });
+            return;
+        }
         console.log(data)
 
         const response = await fetch("http://localhost:5000/movies", {
@@ -31,6 +54,7 @@ const AddMovie = () => {
 
         if (response.ok) {
             reset();
+            setValue("rating", 0, { shouldValidate: true }); 
             toast.success("Movie added successfully!");
         } else {
             toast.error("Failed to add movie.");
@@ -75,7 +99,7 @@ const AddMovie = () => {
 
                         {/* Genre */}
                         <Form.Group>
-                            <Form.Label  className="text-light mt-3">Genre</Form.Label>
+                            <Form.Label className="text-light mt-3">Genre</Form.Label>
                             <Form.Select {...register("genre", { required: "Genre is required" })}>
                                 <option value="">Select Genre</option>
                                 <option value="Comedy">Comedy</option>
@@ -89,7 +113,7 @@ const AddMovie = () => {
 
                         {/* Duration */}
                         <Form.Group>
-                            <Form.Label  className="text-light mt-3">Duration (in minutes)</Form.Label>
+                            <Form.Label className="text-light mt-3">Duration (in minutes)</Form.Label>
                             <Form.Control
                                 type="number"
                                 {...register("duration", {
@@ -116,7 +140,10 @@ const AddMovie = () => {
                         {/* Rating */}
                         <Form.Group>
                             <Form.Label className="text-light mt-3">Rating</Form.Label>
-                            <Rating onClick={(rate) => setValue("rating", rate)} />
+                            <Rating
+                             onClick={handleRating}
+                                // onClick={(rate) => setValue("rating", rate, { shouldValidate: true })}
+                            />
                             {errors.rating && <p className="text-danger">{errors.rating.message}</p>}
                         </Form.Group>
 

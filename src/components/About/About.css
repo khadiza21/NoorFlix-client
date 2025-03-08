@@ -1,0 +1,17 @@
+.feature-card {
+    background-color: white;
+    transition: 0.3s;
+  }
+  
+  .feature-body {
+    background-color: crimson;
+    color: white;
+    transition: 0.3s;
+  }
+  
+  .feature-card:hover .feature-body {
+    background-color: white;
+    color: crimson;
+    border: 2px solid crimson;
+  }
+  

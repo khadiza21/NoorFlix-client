@@ -10,7 +10,6 @@ const NavbarComponent = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            console.log(window.scrollY);
             setScrolled(window.scrollY > 50); 
         };
 
