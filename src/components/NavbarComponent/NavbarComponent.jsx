@@ -63,6 +63,9 @@ const NavbarComponent = () => {
                                     <Button variant="danger" className="ms-3 fw-bold">
                                         Log Out
                                     </Button>
+                                    <Button variant="danger" className="ms-3  fw-bold">
+                                    <Nav.Link as={Link} to="/login" className="text-light py-0 my-0">Login</Nav.Link>
+                                    </Button>
                                 </div>
                             </Nav>
                         </Navbar.Collapse>

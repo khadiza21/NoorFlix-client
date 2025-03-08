@@ -7,6 +7,8 @@ import MovieDetails from "../MovieDetails/MovieDetails";
 import Movies from "../Movies/Movies";
 import AddMovie from "../AddMovie/AddMovie";
 import NotFound from "../NotFound/NotFound";
+import Login from "../../pages/Login";
+import Register from "../../pages/Register";
 
 export const router = createBrowserRouter([
     {
@@ -37,6 +39,14 @@ export const router = createBrowserRouter([
         {
           path: '/contact',
           element: <Contact />
+        },
+        {
+          path: '/login',
+          element: <Login />
+        },
+        {
+          path: '/register',
+          element: <Register />
         },
         {
           path: '/movies/:id',
