@@ -1,6 +1,6 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import auth from "../../firebase/firebase.init";
-import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 
 export const AuthContext = createContext(null);
 
@@ -8,6 +8,15 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true)
     const provider = new GoogleAuthProvider();
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+            setLoading(false);
+        });
+
+        return () => unsubscribe();
+    }, []);
 
 
     const createUser = async (email, password, photoURL, name) => {
@@ -37,42 +46,18 @@ const AuthProvider = ({ children }) => {
 
     const signInUser = async (email, password) => {
         setLoading(true)
-        try {
-            return await signInWithEmailAndPassword(auth, email, password);
-        } catch (error) {
-            console.error("Error signing in:", error);
-            throw new Error('Failed to sign in. Please check your credentials and try again.');
-        } finally {
-            setLoading(false);
-        }
-        // return signInWithEmailAndPassword(auth, email, password);
+        return signInWithEmailAndPassword(auth, email, password);
     }
 
 
     const signOutUser = async () => {
         setLoading(true)
-        try {
-            await signOut(auth);
-        } catch (error) {
-            console.error("Error signing out:", error);
-            throw new Error('Failed to sign out. Please try again later.');
-        } finally {
-            setLoading(false);
-        }
-
-        //   return signOut(auth)
+        return signOut(auth).finally(() => setLoading(false));
+      
     }
 
     const signWithGoogle = async () => {
-        try {
-            return await signInWithPopup(auth, provider);
-        } catch (error) {
-            console.error("Error signing in with Google:", error);
-            throw new Error('Failed to sign in with Google. Please try again.');
-        } finally {
-            setLoading(false); 
-        }
-        // return signInWithPopup(auth, provider);
+         return signInWithPopup(auth, provider);
     }
 
 

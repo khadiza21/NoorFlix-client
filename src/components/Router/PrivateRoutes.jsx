@@ -8,20 +8,23 @@ const PrivateRoutes = ({ children }) => {
 
     const location = useLocation();
 
-    console.log("Loading:", loading);
-    console.log("User:", user);
+ 
 
-    // if (loading) {
-    //     return (<Spinner animation="border" role="status">
-    //         <span className="visually-hidden">Loading...</span>
-    //     </Spinner>)
-    // }
+    if (loading) {
+        return (
+            <div className="d-flex justify-content-center align-items-center vh-100">
+                <Spinner animation="border" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </Spinner>
+            </div>
+        );
+    }
 
     if (user && user?.email) {
         return children;
 
     }
-    return <Navigate to="/login" state={{ from: location }} replace />;
+    return <Navigate to="/login" state={{ from: location.pathname }}  replace />;
 };
 
 export default PrivateRoutes;

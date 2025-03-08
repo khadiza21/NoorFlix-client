@@ -60,7 +60,7 @@ const FavoriteMovies = () => {
     if (loading) return <Spinner animation="border" className="d-block mx-auto my-5" />;
 
     return (
-        <Container className="py-5 text-white " style={{height:'80vh'}}>
+        <Container className="py-5 text-white " >
             <h2 className="text-center mb-4">My Favorite Movies 🎬</h2>
             {favorites.length === 0 ? (
                 <p className="text-center text-muted">No favorite movies found.</p>

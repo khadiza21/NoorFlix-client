@@ -8,6 +8,7 @@ import './Movies.css'
 const Movies = () => {
     const [movies, setMovies] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
+    const [searchTerm, setSearchTerm] = useState(""); 
     const moviesPerPage = 6;
     const navigate = useNavigate();
   
@@ -20,16 +21,32 @@ const Movies = () => {
         });
     }, []);
 
-    // Pagination Logic
+  
     const indexOfLastMovie = currentPage * moviesPerPage;
     const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
-    const currentMovies = movies.slice(indexOfFirstMovie, indexOfLastMovie);
+    const currentMovies = movies
+    .filter((movie) =>
+      movie.movieTitle.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .slice(indexOfFirstMovie, indexOfLastMovie);
 
-    const totalPages = Math.ceil(movies.length / moviesPerPage);
+    const totalPages = Math.ceil(movies.filter((movie) =>
+      movie.movieTitle.toLowerCase().includes(searchTerm.toLowerCase()) 
+    ).length / moviesPerPage);
   
     return (
       <div className="bg-black py-5 ">
         <Container className="text-white">
+
+        <div className="mb-4">
+          <input
+            type="text"
+            placeholder="Search by movie title..."
+            className="form-control"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)} 
+          />
+        </div>
           
           <Row className="justify-content-center">
             {currentMovies.map((movie) => (

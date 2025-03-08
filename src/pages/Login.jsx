@@ -23,9 +23,8 @@ const Login = () => {
             .then((userCredential) => {
                 const user = userCredential.user;
                 setUser(user);
-                navigate(location.state?.from || "/", { replace: true });
                 toast.success('Login Successful! Redirecting...');
-
+                navigate(location.state?.from || "/", { replace: true });
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -42,8 +41,8 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
                 setUser(user)
-                toast.success("Google Sign-In Successful!");
                 navigate(location?.state ? location.state : '/')
+                toast.success("Google Sign-In Successful!");
             }).catch((error) => {
                 console.log(error);
                 toast.error(error.message)

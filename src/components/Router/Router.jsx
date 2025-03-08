@@ -11,6 +11,7 @@ import Login from "../../pages/Login";
 import Register from "../../pages/Register";
 import PrivateRoutes from "./PrivateRoutes";
 import FavoriteMovies from "../FavoriteMovies/FavoriteMovies";
+import UpdateMovie from "../UpdateMovie/UpdateMovie";
 
 export const router = createBrowserRouter([
     {
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
         {
           path: '/favorites',
           element: <PrivateRoutes><FavoriteMovies /></PrivateRoutes>
+        },
+        {
+          path: '/update-movie/:id',
+          element: <PrivateRoutes><UpdateMovie /></PrivateRoutes>
         },
         {
           path: '/contact',

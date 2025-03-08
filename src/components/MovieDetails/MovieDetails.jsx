@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import { Container, Card, Spinner, Button } from "react-bootstrap";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
@@ -126,7 +126,17 @@ const MovieDetails = () => {
                     >
                         {isFavorite ? "Marked as Favorite" : "Add to Favorite"}
                     </Button>
-                    <Button variant="primary" size="lg" onClick={() => navigate("/all-movies")}>
+                    <Button
+                        variant="warning"
+                           className="me-3"
+                        size='lg'
+                        as={Link}
+                        to={`/update-movie/${movie._id}`}
+                    >
+                        Update Movie
+                    </Button>
+
+                    <Button  variant="primary" size="lg" onClick={() => navigate("/all-movies")}>
                         See All Movies
                     </Button>
                 </div>
