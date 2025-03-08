@@ -1,0 +1,543 @@
+[
+    {
+      "_id": "67c587290a9a53c992a2e75f",
+      "moviePoster": "https://upload.wikimedia.org/wikipedia/en/4/4d/The-Message.jpg",
+      "movieTitle": "The Message",
+      "genre": [
+        "Historical",
+        "Drama",
+        "War"
+      ],
+      "duration": 178,
+      "releaseYear": 1976,
+      "rating": 8.2,
+      "summary": "The story of the Prophet Muhammad's life and the birth of Islam."
+    },
+    {
+      "_id": "67c587290a9a53c992a2e760",
+      "moviePoster": "https://m.media-amazon.com/images/M/MV5BYTM3YTdmZDgtNTViZi00MmNmLWIyMDUtMmFkNWQ5YzdiZDA5XkEyXkFqcGc@._V1_.jpg",
+      "movieTitle": "Bilal: A New Breed of Hero",
+      "genre": [
+        "Animation",
+        "Adventure",
+        "Drama"
+      ],
+      "duration": 105,
+      "releaseYear": 2015,
+      "rating": 7.1,
+      "summary": "The story of Bilal ibn Rabah, a slave who became a prominent figure in early Islam, told in an animated form."
+    },
+    {
+      "_id": "67c587290a9a53c992a2e761",
+      "moviePoster": "https://m.media-amazon.com/images/M/MV5BMTQ1MDcxNjYzMF5BMl5BanBnXkFtZTcwODEwMDA1Nw@@._V1_.jpg",
+      "movieTitle": "Journey to Mecca",
+      "genre": [
+        "Documentary",
+        "History"
+      ],
+      "duration": 88,
+      "releaseYear": 2009,
+      "rating": 7.3,
+      "summary": "A documentary that recounts the journey of the first Muslim to complete the pilgrimage to Mecca in the 14th century."
+    },
+    {
+      "_id": "67c587290a9a53c992a2e762",
+      "moviePoster": "https://2.bp.blogspot.com/-BkJowp48Eps/UUWdXHBN3HI/AAAAAAAABuA/FpPlMTH8fkI/s1600/Lion%20of%20the%20desert.JPG",
+      "movieTitle": "Lion of the Desert",
+      "genre": [
+        "Historical",
+        "War",
+        "Drama"
+      ],
+      "duration": 181,
+      "releaseYear": 1981,
+      "rating": 8,
+      "summary": "The story of Omar Mukhtar, leader of the Libyan resistance against the Italian invasion in the early 20th century."
+    },
+    {
+      "_id": "67c587290a9a53c992a2e763",
+      "moviePoster": "https://ogden_images.s3.amazonaws.com/www.lockhaven.com/images/2021/05/19143504/social-network-592x840.jpg",
+      "movieTitle": "The Social Network",
+      "genre": [
+        "Biography",
+        "Drama"
+      ],
+      "duration": 120,
+      "releaseYear": 2010,
+      "rating": 8,
+      "summary": "The story of the founding of Facebook and the lawsuits that followed."
+    },
+    {
+      "_id": "67c587290a9a53c992a2e764",
+      "moviePoster": "https://www.cultofmac.com/wp-content/uploads/2015/01/landscape.jpg",
+      "movieTitle": "Steve Jobs",
+      "genre": [
+        "Biography",
+        "Drama"
+      ],
+      "duration": 122,
+      "releaseYear": 2015,
+      "rating": 7.2,
+      "summary": "A biographical drama that captures three iconic moments in the life of Steve Jobs."
+    },
+    {
+      "_id": "67c587290a9a53c992a2e765",
+      "moviePoster": "https://www.fintechbd.com/wp-content/uploads/2017/05/1.230564.jpg",
+      "movieTitle": "Pirates of Silicon Valley",
+      "genre": [
+        "Biography",
+        "Drama",
+        "History"
+      ],
+      "duration": 95,
+      "releaseYear": 1999,
+      "rating": 7.3,
+      "summary": "A drama that chronicles the rise of Steve Jobs and Bill Gates and their companies, Apple and Microsoft."
+    },
+    {
+      "_id": "67c587290a9a53c992a2e766",
+      "moviePoster": "https://upload.wikimedia.org/wikipedia/en/8/87/The_Imitation_Game_%282014%29.png",
+      "movieTitle": "The Imitation Game",
+      "genre": [
+        "Biography",
+        "Drama",
+        "Thriller"
+      ],
+      "duration": 113,
+      "releaseYear": 2014,
+      "rating": 8,
+      "summary": "The story of Alan Turing, the mathematician who broke the German Enigma code during World War II."
+    },
+    {
+      "_id": "67c587290a9a53c992a2e767",
+      "moviePoster": "https://i.ytimg.com/vi/KEHLttg2Nts/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBDasHbTS23T7Ip899FLfrCjXCfnA",
+      "movieTitle": "The Matrix",
+      "genre": [
+        "Action",
+        "Sci-Fi"
+      ],
+      "duration": 136,
+      "releaseYear": 1999,
+      "rating": 8.7,
+      "summary": "A hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers."
+    },
+    {
+      "_id": "67c587290a9a53c992a2e768",
+      "moviePoster": "https://m.media-amazon.com/images/M/MV5BMjRiMTkxODYtYjNlZS00NzU1LThjYWMtNTcxMzI0NGMyMTUxXkEyXkFqcGc@._V1_.jpg",
+      "movieTitle": "Sneakers",
+      "genre": [
+        "Crime",
+        "Drama",
+        "Thriller"
+      ],
+      "duration": 126,
+      "releaseYear": 1992,
+      "rating": 7.1,
+      "summary": "A team of security experts is hired to steal a top-secret device, but things take a dangerous turn."
+    },
+    {
+      "_id": "67c587290a9a53c992a2e769",
+      "moviePoster": "https://upload.wikimedia.org/wikipedia/en/e/e0/Jobs_%28film%29.jpg",
+      "movieTitle": "Jobs",
+      "genre": [
+        "Biography",
+        "Drama"
+      ],
+      "duration": 128,
+      "releaseYear": 2013,
+      "rating": 6.2,
+      "summary": "The story of Steve Jobs and the creation of Apple Inc."
+    },
+    {
+      "_id": "67c587290a9a53c992a2e76a",
+      "moviePoster": "https://upload.wikimedia.org/wikipedia/en/5/58/Blackhat_poster.jpg",
+      "movieTitle": "Blackhat",
+      "genre": [
+        "Action",
+        "Crime",
+        "Drama"
+      ],
+      "duration": 133,
+      "releaseYear": 2015,
+      "rating": 5.4,
+      "summary": "A convicted hacker is released from prison to help American and Chinese authorities track down a cybercriminal network."
+    },
+    {
+      "_id": "67c587290a9a53c992a2e76b",
+      "moviePoster": "https://m.media-amazon.com/images/M/MV5BMjY1MTY5NTg3M15BMl5BanBnXkFtZTgwMDQyMjgwMDE@._V1_FMjpg_UX1000_.jpg",
+      "movieTitle": "The Fifth Estate",
+      "genre": [
+        "Biography",
+        "Drama",
+        "Thriller"
+      ],
+      "duration": 128,
+      "releaseYear": 2013,
+      "rating": 6.2,
+      "summary": "The story of the rise and fall of WikiLeaks and its controversial founder, Julian Assange."
+    },
+    {
+      "_id": "67c587290a9a53c992a2e76c",
+      "moviePoster": "https://media.senscritique.com/media/000006454834/300/silicon_valley.jpg",
+      "movieTitle": "Silicon Valley",
+      "genre": [
+        "Comedy",
+        "Drama"
+      ],
+      "duration": 30,
+      "releaseYear": 2014,
+      "rating": 8.5,
+      "summary": "A group of software engineers try to create their own startup while navigating the challenges of Silicon Valley's tech world."
+    },
+    {
+      "_id": "67c587290a9a53c992a2e76d",
+      "moviePoster": "https://www.rogerebert.com/wp-content/uploads/2024/03/Source-Code.jpg",
+      "movieTitle": "Source Code",
+      "genre": [
+        "Action",
+        "Drama",
+        "Mystery"
+      ],
+      "duration": 93,
+      "releaseYear": 2011,
+      "rating": 7.5,
+      "summary": "A soldier is assigned to find the bomber of a commuter train using a revolutionary government program."
+    },
+    {
+      "_id": "67c587290a9a53c992a2e76e",
+      "moviePoster": "https://m.media-amazon.com/images/I/61lv1BBrbiL._AC_UF894,1000_QL80_.jpg",
+      "movieTitle": "Chappie",
+      "genre": [
+        "Action",
+        "Crime",
+        "Drama"
+      ],
+      "duration": 120,
+      "releaseYear": 2015,
+      "rating": 6.8,
+      "summary": "In a future where crime is patrolled by robots, a stolen robot is given new programming and learns human emotions."
+    },
+    {
+      "_id": "67c587290a9a53c992a2e76f",
+      "moviePoster": "https://m.media-amazon.com/images/I/616BXo1oRAL._AC_UF1000,1000_QL80_.jpg",
+      "movieTitle": "Mr. Robot",
+      "genre": [
+        "Crime",
+        "Drama",
+        "Thriller"
+      ],
+      "duration": 60,
+      "releaseYear": 2015,
+      "rating": 8.5,
+      "summary": "A cybersecurity engineer and hacker with social anxiety are recruited by an insurrectionary anarchist known as Mr. Robot to join a group of hacktivists."
+    },
+    {
+      "_id": "67c587290a9a53c992a2e770",
+      "moviePoster": "https://m.media-amazon.com/images/M/MV5BYTdmNzM3YzItZTRkYS00MTY5LTg4ZmItNjFmNTk2N2Q2NmNlXkEyXkFqcGc@._V1_.jpg",
+      "movieTitle": "Minority Report",
+      "genre": [
+        "Action",
+        "Crime",
+        "Mystery"
+      ],
+      "duration": 145,
+      "releaseYear": 2002,
+      "rating": 7.6,
+      "summary": "In the future, a specialized police department apprehends criminals based on foreknowledge provided by three psychics."
+    },
+    {
+      "_id": "67c587290a9a53c992a2e771",
+      "moviePoster": "https://upload.wikimedia.org/wikipedia/en/e/ef/Transcendence2014Poster.jpg",
+      "movieTitle": "Transcendence",
+      "genre": [
+        "Drama",
+        "Sci-Fi",
+        "Thriller"
+      ],
+      "duration": 119,
+      "releaseYear": 2014,
+      "rating": 6.3,
+      "summary": "A scientist's drive for artificial intelligence takes on dangerous implications when his own consciousness is uploaded into one such program."
+    },
+    {
+      "_id": "67c587290a9a53c992a2e772",
+      "moviePoster": "https://m.media-amazon.com/images/I/71NaQGqIhAL._AC_UF894,1000_QL80_.jpg",
+      "movieTitle": "Ready Player One",
+      "genre": [
+        "Action",
+        "Adventure",
+        "Sci-Fi"
+      ],
+      "duration": 140,
+      "releaseYear": 2018,
+      "rating": 7.5,
+      "summary": "In a dystopian future, a young man enters a virtual reality world to search for an Easter egg that will reward him with immense fortune."
+    },
+    {
+      "_id": "67c587290a9a53c992a2e773",
+      "moviePoster": "https://m.media-amazon.com/images/M/MV5BODA1YjhhZDctM2Y1ZS00ODkyLWFmMTAtZGY5YWEzNzRjYzA1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+      "movieTitle": "Artificial Intelligence: A.I.",
+      "genre": [
+        "Drama",
+        "Sci-Fi"
+      ],
+      "duration": 146,
+      "releaseYear": 2001,
+      "rating": 7.2,
+      "summary": "In the future, highly advanced robots are designed to serve humans, and a child-like robot seeks to become 'real' to be loved by his human mother."
+    },
+    {
+      "_id": "67c587290a9a53c992a2e774",
+      "moviePoster": "https://m.media-amazon.com/images/M/MV5BMTU0MjAwMDkxNV5BMl5BanBnXkFtZTgwMTA4ODIxNjM@._V1_.jpg",
+      "movieTitle": "Next Gen",
+      "genre": [
+        "Animation",
+        "Action",
+        "Adventure"
+      ],
+      "duration": 106,
+      "releaseYear": 2018,
+      "rating": 6.6,
+      "summary": "In a future where technology controls everything, a rebellious girl and her robot friend must work together to fight against a corporation that is threatening the world."
+    },
+    {
+      "_id": "67c587290a9a53c992a2e775",
+      "moviePoster": "https://lumiere-a.akamaihd.net/v1/images/p_bighero6_19753_20bd6206.jpeg",
+      "movieTitle": "Big Hero 6",
+      "genre": [
+        "Animation",
+        "Action",
+        "Adventure"
+      ],
+      "duration": 102,
+      "releaseYear": 2014,
+      "rating": 7.8,
+      "summary": "A young robotics prodigy forms a superhero team to combat a mysterious villain threatening the city."
+    },
+    {
+      "_id": "67c587290a9a53c992a2e776",
+      "moviePoster": "https://m.media-amazon.com/images/M/MV5BMjExMTg5OTU0NF5BMl5BanBnXkFtZTcwMjMxMzMzMw@@._V1_.jpg",
+      "movieTitle": "WALL-E",
+      "genre": [
+        "Animation",
+        "Adventure",
+        "Sci-Fi"
+      ],
+      "duration": 98,
+      "releaseYear": 2008,
+      "rating": 8.4,
+      "summary": "In the distant future, a waste-collecting robot embarks on a space journey that will ultimately decide the fate of mankind."
+    },
+    {
+      "_id": "67c587290a9a53c992a2e777",
+      "moviePoster": "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p23609_p_v10_ag.jpg",
+      "movieTitle": "The Iron Giant",
+      "genre": [
+        "Animation",
+        "Adventure",
+        "Family"
+      ],
+      "duration": 86,
+      "releaseYear": 1999,
+      "rating": 8,
+      "summary": "A young boy befriends a giant robot from outer space that a paranoid government agent wants to destroy."
+    },
+    {
+      "_id": "67c587290a9a53c992a2e778",
+      "moviePoster": "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p10980706_p_v13_ar.jpg",
+      "movieTitle": "The Martian",
+      "genre": [
+        "Adventure",
+        "Drama",
+        "Sci-Fi"
+      ],
+      "duration": 144,
+      "releaseYear": 2015,
+      "rating": 8,
+      "summary": "An astronaut becomes stranded on Mars, and must figure out how to survive while awaiting rescue."
+    },
+    {
+      "_id": "67c587290a9a53c992a2e779",
+      "moviePoster": "https://tar.mx/cdn-cgi/image/format=webp,width=412/log/wp-content/uploads/2017/02/arrival-i2.jpg",
+      "movieTitle": "Arrival",
+      "genre": [
+        "Drama",
+        "Mystery",
+        "Sci-Fi"
+      ],
+      "duration": 116,
+      "releaseYear": 2016,
+      "rating": 7.9,
+      "summary": "A linguist works with the military to communicate with alien lifeforms after twelve mysterious spacecraft land around the world."
+    },
+    {
+      "_id": "67cb27f1eed26d9aaefbe435",
+      "moviePoster": "https://lumiere-a.akamaihd.net/v1/images/au_movies_disney_mufasa_thelionking_payoff_pg_d4de9ce3.jpeg",
+      "movieTitle": "Musafa",
+      "genre": [
+        "Action"
+      ],
+      "duration": 119,
+      "releaseYear": "2023",
+      "summary": "loeoeos sloer fjkoeeo dkoreur  do rjepf doe epfjeorpe ef epf e pe fe pef e f",
+      "rating": 4
+    },
+    {
+      "_id": "67cb285aeed26d9aaefbe436",
+      "moviePoster": "https://lumiere-a.akamaihd.net/v1/images/au_movies_disney_mufasa_thelionking_payoff_pg_d4de9ce3.jpeg",
+      "movieTitle": "Musafa",
+      "genre": [
+        "Horror"
+      ],
+      "duration": 123,
+      "releaseYear": "2023",
+      "summary": "sde seeeeees dsfdf",
+      "rating": 5
+    },
+    {
+      "_id": "67cb28f7eed26d9aaefbe437",
+      "moviePoster": "https://placewise.imgix.net/movies/images/MV018922150000.jpg",
+      "movieTitle": "Musafa",
+      "genre": [
+        "Horror"
+      ],
+      "duration": 230,
+      "releaseYear": "2023",
+      "summary": "jsssss  ssssssssssssssssssssssss",
+      "rating": null
+    },
+    {
+      "_id": "67cb3f0d818674584ca8ce73",
+      "moviePoster": "https://d3cif2hu95s88v.cloudfront.net/blog/wp-content/uploads/2022/01/03053528/Sunflower.jpg",
+      "movieTitle": "Musafa",
+      "genre": [
+        "Drama"
+      ],
+      "duration": 234,
+      "releaseYear": "2024",
+      "summary": "343443434343",
+      "rating": null
+    },
+    {
+      "_id": "67cb3f4c818674584ca8ce74",
+      "moviePoster": "https://d3cif2hu95s88v.cloudfront.net/blog/wp-content/uploads/2022/01/03053528/Sunflower.jpg",
+      "movieTitle": "Musafa",
+      "genre": [
+        "Comedy"
+      ],
+      "duration": 123,
+      "releaseYear": "2023",
+      "summary": "eeeeeeeeeeeeeeeeeeeeeeee",
+      "rating": null
+    },
+    {
+      "_id": "67cb417a818674584ca8ce75",
+      "rating": 0,
+      "moviePoster": "https://d3cif2hu95s88v.cloudfront.net/blog/wp-content/uploads/2022/01/03053528/Sunflower.jpg",
+      "movieTitle": "Musafa",
+      "genre": [
+        "Drama"
+      ],
+      "duration": 233,
+      "releaseYear": "2024",
+      "summary": "gggggggggggggggggggggggggggg"
+    },
+    {
+      "_id": "67cb4193818674584ca8ce76",
+      "rating": 0,
+      "moviePoster": "https://d3cif2hu95s88v.cloudfront.net/blog/wp-content/uploads/2022/01/03053528/Sunflower.jpg",
+      "movieTitle": "Musafa",
+      "genre": [
+        "Comedy"
+      ],
+      "duration": 455,
+      "releaseYear": "2024",
+      "summary": "yyyyyyyyyyyyyyyyyyyyyyyyyyy"
+    },
+    {
+      "_id": "67cb4201818674584ca8ce77",
+      "rating": 0,
+      "moviePoster": "https://d3cif2hu95s88v.cloudfront.net/blog/wp-content/uploads/2022/01/03053528/Sunflower.jpg",
+      "movieTitle": "Musafa",
+      "genre": [
+        "Drama"
+      ],
+      "duration": 455,
+      "releaseYear": "2023",
+      "summary": "44444444444444444444444444444444444444444"
+    },
+    {
+      "_id": "67cb4484818674584ca8ce78",
+      "rating": 5,
+      "moviePoster": "https://d3cif2hu95s88v.cloudfront.net/blog/wp-content/uploads/2022/01/03053528/Sunflower.jpg",
+      "movieTitle": "Musafa",
+      "genre": [
+        "Comedy"
+      ],
+      "duration": 121,
+      "releaseYear": "2023",
+      "summary": "1111111111111111111111 11111111111111"
+    },
+    {
+      "_id": "67cb4558818674584ca8ce79",
+      "rating": 4,
+      "moviePoster": "https://d3cif2hu95s88v.cloudfront.net/blog/wp-content/uploads/2022/01/03053528/Sunflower.jpg",
+      "movieTitle": "Musafa",
+      "genre": [
+        "Drama"
+      ],
+      "duration": 123,
+      "releaseYear": "2023",
+      "summary": "3333333333333333333"
+    },
+    {
+      "_id": "67cb45ca818674584ca8ce7a",
+      "rating": 3,
+      "moviePoster": "https://d3cif2hu95s88v.cloudfront.net/blog/wp-content/uploads/2022/01/03053528/Sunflower.jpg",
+      "movieTitle": "Musafa",
+      "genre": [
+        "Horror"
+      ],
+      "duration": 123,
+      "releaseYear": "2024",
+      "summary": "dfdfdfd edfedre"
+    },
+    {
+      "_id": "67cb463c818674584ca8ce7b",
+      "rating": 3,
+      "moviePoster": "https://d3cif2hu95s88v.cloudfront.net/blog/wp-content/uploads/2022/01/03053528/Sunflower.jpg",
+      "movieTitle": "Musafa",
+      "genre": [
+        "Comedy"
+      ],
+      "duration": 227,
+      "releaseYear": "2023",
+      "summary": "jjjjjjjjjjjjjjjjjjj"
+    },
+    {
+      "_id": "67cc80965e93153d30536d3d",
+      "rating": 4,
+      "email": "tanhai9315@gmail.com",
+      "moviePoster": "https://cdn.pixabay.com/photo/2019/04/24/21/55/cinema-4153289_640.jpg",
+      "movieTitle": "Muskil",
+      "genre": [
+        "Drama"
+      ],
+      "duration": 120,
+      "releaseYear": "2023",
+      "summary": "ksj ssssssssssssss ksssssssss"
+    },
+    {
+      "_id": "67cc87bbc5f808af6f937d99",
+      "rating": 4,
+      "email": "tanhai9315@gmail.com",
+      "moviePoster": "https://www.bworldonline.com/wp-content/uploads/2022/05/cinema-film.jpg",
+      "movieTitle": "Marhava",
+      "genre": [
+        "Drama"
+      ],
+      "duration": 123,
+      "releaseYear": "2023",
+      "summary": "sssssssssssssssssss ssssssssssssssssss sssssssssssssss"
+    }
+  ]

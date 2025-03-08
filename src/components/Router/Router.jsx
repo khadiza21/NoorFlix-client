@@ -10,6 +10,7 @@ import NotFound from "../NotFound/NotFound";
 import Login from "../../pages/Login";
 import Register from "../../pages/Register";
 import PrivateRoutes from "./PrivateRoutes";
+import FavoriteMovies from "../FavoriteMovies/FavoriteMovies";
 
 export const router = createBrowserRouter([
     {
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
         {
           path: '/add-movie',
           element: <PrivateRoutes><AddMovie /></PrivateRoutes>
+        },
+        {
+          path: '/favorites',
+          element: <PrivateRoutes><FavoriteMovies /></PrivateRoutes>
         },
         {
           path: '/contact',
