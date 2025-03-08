@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Container, Form, Button, Card, InputGroup } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from "react-router-dom";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
+import { AuthContext } from "../components/Provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Register = () => {
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
+    const { createUser } = useContext(AuthContext);
 
     const {
         register,
@@ -16,14 +18,42 @@ const Register = () => {
     } = useForm();
 
     const onSubmit = (data) => {
+        const { name, email, password, photo } = data;
         console.log(data);
-        alert("Registration Successful!");
-        navigate("/");
+        createUser(email,password,photo,name)
+            .then(result => {
+                console.log(result.user);
+                 const newUser = {name,email,photo, password}
+                 fetch('http://localhost:5000/users',
+                    {
+                     method:'POST',
+                     headers: {
+                        'content-type':'application/json'
+                     } ,
+                     body:JSON.stringify(newUser)
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log('user created to db',data);
+                        if(data.insertedId){
+                            console.log('user created in db');
+                        }
+                    })
+
+                    toast.success("Registration Successful!");
+                    //navigate("/");
+
+            })
+            .catch(error => {
+                console.log('error', error);
+                toast.error(error.message)
+            })
+     
     };
 
     const handleGoogleLogin = () => {
-        // Simulating Google Login
-        alert("Google Login Successful!");
+      
+        toast.success("Google Login Successful!");
         navigate("/");
     };
 
@@ -117,7 +147,7 @@ const Register = () => {
                 <div className="text-center mt-3">
 
                     <Button variant="light" className="w-100" onClick={handleGoogleLogin}>
-                        Sign in with Google
+                    <FaGoogle />     Sign in with Google
                     </Button>
                     <p className="my-2 text-light">
                         Already have an account? <a className="text-secondary" href="/login">Login</a>

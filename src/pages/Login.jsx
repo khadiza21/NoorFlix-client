@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { Button, Container, Form, InputGroup } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 
 const Login = () => {
     const {
@@ -63,7 +63,7 @@ const Login = () => {
                     <div className="text-center mt-3 text-light">
                      
                         <Button variant="danger" className="w-100" >
-                            Sign in with Google
+                        <FaGoogle />  Sign in with Google
                         </Button>
                         <p className="my-2">
                             Don't have any account? <a href="/register" className="text-secondary">Register</a>

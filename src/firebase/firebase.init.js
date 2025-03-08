@@ -1,6 +1,6 @@
 
 import { initializeApp } from "firebase/app";
-
+import { getAuth } from "firebase/auth";
 const firebaseConfig = {
   apiKey: "AIzaSyBXla1Hn1cY6BCCJqAnf2iy2ak4eW18mYY",
   authDomain: "noorflix-bk.firebaseapp.com",
