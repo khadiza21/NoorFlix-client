@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { Rating } from "react-simple-star-rating";
+import { AuthContext } from "../Provider/AuthProvider";
 
 
 
@@ -23,12 +24,12 @@ const AddMovie = () => {
     });
 
 
-    const ratingValue = watch("rating"); 
-
+    const ratingValue = watch("rating");
+    const { user } = useContext(AuthContext);
 
     const handleRating = (rate) => {
-        setValue("rating", rate, { shouldValidate: true }); 
-        clearErrors("rating"); 
+        setValue("rating", rate, { shouldValidate: true });
+        clearErrors("rating");
     };
 
 
@@ -37,6 +38,7 @@ const AddMovie = () => {
         data.rating = Number(data.rating);
         data.duration = Number(data.duration);
         data.genre = [data.genre];
+        data.email = user?.email || "";
 
         if (data.rating === 0) {
             setError("rating", { type: "manual", message: "Rating is required!" });
@@ -54,7 +56,7 @@ const AddMovie = () => {
 
         if (response.ok) {
             reset();
-            setValue("rating", 0, { shouldValidate: true }); 
+            setValue("rating", 0, { shouldValidate: true });
             toast.success("Movie added successfully!");
         } else {
             toast.error("Failed to add movie.");
@@ -68,6 +70,22 @@ const AddMovie = () => {
             <Row className="justify-content-center">
                 <Col md={6} sm={12}>
                     <h2 className="text-center text-light">Add Movie</h2>
+
+
+
+                    <Form.Group className="mb-3">
+                        <Form.Label className="text-light">Email</Form.Label>
+                        <Form.Control
+                            type="email"
+                            placeholder="Enter email"
+                            {...register("email", { required: "Email is required" })}
+                            defaultValue={user?.email || ""}
+                            readOnly
+                        />
+                        {errors.email && <p className="text-danger">{errors.email.message}</p>}
+                    </Form.Group>
+
+
                     <Form onSubmit={handleSubmit(onSubmit)}>
                         <Form.Group>
                             <Form.Label className="text-light mt-3">Movie Poster URL</Form.Label>
@@ -141,8 +159,8 @@ const AddMovie = () => {
                         <Form.Group>
                             <Form.Label className="text-light mt-3">Rating</Form.Label>
                             <Rating
-                             onClick={handleRating}
-                                // onClick={(rate) => setValue("rating", rate, { shouldValidate: true })}
+                                onClick={handleRating}
+                            // onClick={(rate) => setValue("rating", rate, { shouldValidate: true })}
                             />
                             {errors.rating && <p className="text-danger">{errors.rating.message}</p>}
                         </Form.Group>

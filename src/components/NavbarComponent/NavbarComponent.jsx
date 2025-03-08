@@ -68,13 +68,6 @@ const NavbarComponent = () => {
 
                             {user && user?.email ? (
                                 <>
-
-                                    {/* {user?.photoURL ? (
-                                        <div className="user-profile me-2">
-                                            <img src={user?.photoURL} alt="User Avatar" className="user-avatar" />
-                                            <small className="user-name">{user.displayName}</small>
-                                        </div>
-                                    ) */}
                                     <div
                                         className="position-relative"
                                         onMouseEnter={() => setShowName(true)}

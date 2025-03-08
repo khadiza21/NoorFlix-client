@@ -35,19 +35,44 @@ const AuthProvider = ({ children }) => {
     }
 
 
-    const signInUser = (email, password) => {
+    const signInUser = async (email, password) => {
         setLoading(true)
-        return signInWithEmailAndPassword(auth, email, password);
+        try {
+            return await signInWithEmailAndPassword(auth, email, password);
+        } catch (error) {
+            console.error("Error signing in:", error);
+            throw new Error('Failed to sign in. Please check your credentials and try again.');
+        } finally {
+            setLoading(false);
+        }
+        // return signInWithEmailAndPassword(auth, email, password);
     }
 
 
-    const signOutUser = () => {
+    const signOutUser = async () => {
         setLoading(true)
-        return signOut(auth)
+        try {
+            await signOut(auth);
+        } catch (error) {
+            console.error("Error signing out:", error);
+            throw new Error('Failed to sign out. Please try again later.');
+        } finally {
+            setLoading(false);
+        }
+
+        //   return signOut(auth)
     }
 
-    const signWithGoogle = () => {
-        return signInWithPopup(auth, provider);
+    const signWithGoogle = async () => {
+        try {
+            return await signInWithPopup(auth, provider);
+        } catch (error) {
+            console.error("Error signing in with Google:", error);
+            throw new Error('Failed to sign in with Google. Please try again.');
+        } finally {
+            setLoading(false); 
+        }
+        // return signInWithPopup(auth, provider);
     }
 
 
