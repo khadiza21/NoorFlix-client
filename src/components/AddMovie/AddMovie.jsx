@@ -71,8 +71,6 @@ const AddMovie = () => {
                 <Col md={6} sm={12}>
                     <h2 className="text-center text-light">Add Movie</h2>
 
-
-
                     <Form.Group className="mb-3">
                         <Form.Label className="text-light">Email</Form.Label>
                         <Form.Control
@@ -102,7 +100,7 @@ const AddMovie = () => {
                             {errors.moviePoster && <p className="text-danger">{errors.moviePoster.message}</p>}
                         </Form.Group>
 
-                        {/* Movie Title */}
+                
                         <Form.Group>
                             <Form.Label className="text-light mt-3">Movie Title</Form.Label>
                             <Form.Control
@@ -115,7 +113,6 @@ const AddMovie = () => {
                             {errors.movieTitle && <p className="text-danger">{errors.movieTitle.message}</p>}
                         </Form.Group>
 
-                        {/* Genre */}
                         <Form.Group>
                             <Form.Label className="text-light mt-3">Genre</Form.Label>
                             <Form.Select {...register("genre", { required: "Genre is required" })}>
@@ -160,7 +157,7 @@ const AddMovie = () => {
                             <Form.Label className="text-light mt-3">Rating</Form.Label>
                             <Rating
                                 onClick={handleRating}
-                            // onClick={(rate) => setValue("rating", rate, { shouldValidate: true })}
+                           
                             />
                             {errors.rating && <p className="text-danger">{errors.rating.message}</p>}
                         </Form.Group>

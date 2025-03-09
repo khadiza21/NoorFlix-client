@@ -13,6 +13,7 @@ const Login = () => {
         formState: { errors },
     } = useForm();
     const [showPassword, setShowPassword] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
     const navigate = useNavigate();
     const { signInUser, signWithGoogle, setUser } = useContext(AuthContext);
 
@@ -25,11 +26,14 @@ const Login = () => {
                 setUser(user);
                 toast.success('Login Successful! Redirecting...');
                 navigate(location.state?.from || "/", { replace: true });
+                setErrorMessage("");
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log(errorCode, errorMessage);
+                setErrorMessage("Invalid email or password!"); 
+
             });
 
     };
@@ -43,6 +47,7 @@ const Login = () => {
                 setUser(user)
                 navigate(location?.state ? location.state : '/')
                 toast.success("Google Sign-In Successful!");
+                setErrorMessage("");
             }).catch((error) => {
                 console.log(error);
                 toast.error(error.message)
@@ -82,7 +87,7 @@ const Login = () => {
 
                     <a href="#" className="text-secondary">Forgot Password?</a>
 
-
+                    {errorMessage && <p className="text-danger mt-2">{errorMessage}</p>}
                     <Button variant="light" className="fw-bold w-100 mt-3" type="submit">Login</Button>
 
 

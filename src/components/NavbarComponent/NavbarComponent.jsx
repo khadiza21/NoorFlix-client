@@ -7,6 +7,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 const NavbarComponent = () => {
 
     const [showName, setShowName] = useState(false);
+    const [showDropdown, setShowDropdown] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const { user, signOutUser, setUser } = useContext(AuthContext);
     const getNavLinkClass = ({ isActive }) =>
@@ -33,7 +34,7 @@ const NavbarComponent = () => {
                 console.log("error ", error);
             });
     };
-
+  
     console.log(user, 'user');
     return (
 
@@ -65,54 +66,50 @@ const NavbarComponent = () => {
 
 
                         <div className="d-flex align-items-center ms-3">
-
                             {user && user?.email ? (
                                 <>
                                     <div
                                         className="position-relative"
-                                        onMouseEnter={() => setShowName(true)}
-                                        onMouseLeave={() => setShowName(false)}
+                                        onMouseEnter={() => setShowDropdown(true)}
+                                        onMouseLeave={() => setShowDropdown(false)}
                                     >
+                                        <img
+                                            src={user?.photoURL || "https://cdn-icons-png.flaticon.com/512/6596/6596121.png"}
+                                            alt="User"
+                                            className="rounded-circle border border-danger"
+                                            width="40"
+                                            height="40"
+                                            style={{ cursor: "pointer" }}
+                                        />
 
-                                        {user?.photoURL ? <img
-                                            src={user?.photoURL}
-                                            alt="User"
-                                            className="rounded-circle border border-danger"
-                                            width="40"
-                                            height="40"
-                                            style={{ cursor: "pointer" }}
-                                        /> : <img
-                                            src="https://cdn-icons-png.flaticon.com/512/6596/6596121.png"
-                                            alt="User"
-                                            className="rounded-circle border border-danger"
-                                            width="40"
-                                            height="40"
-                                            style={{ cursor: "pointer" }}
-                                        />}
-                                        {showName && (
+                                        {/* Dropdown menu */}
+                                        {showDropdown && (
                                             <div
                                                 className="position-absolute bg-white text-dark p-2 rounded shadow"
-                                                style={{ top: "50px", left: "50%", transform: "translateX(-50%)" }}
+                                                style={{
+                                                    top: "30px",
+                                                    left: "50%",
+                                                    transform: "translateX(-50%)",
+                                                    minWidth: "150px",
+                                                    textAlign: "center",
+                                                    zIndex: 1000,
+                                                }}
                                             >
-                                                {user?.displayName}
+                                                <p className="mb-2 fw-bold">{user?.displayName || "User"}</p>
+                                                <Button onClick={handleSignOut} variant="danger" className="w-100">
+                                                    Log Out
+                                                </Button>
                                             </div>
                                         )}
-
                                     </div>
-                                    <Button onClick={handleSignOut} variant="danger" className="ms-3 fw-bold">
-                                        Log Out
-                                    </Button>
-
-
                                 </>
                             ) : (
-                                <>
-                                    <Button variant="danger" className="ms-3  fw-bold">
-                                        <Nav.Link as={Link} to="/login" className="text-light py-0 my-0">Login</Nav.Link>
-                                    </Button>
-                                </>
+                                <Button variant="danger" className="ms-3 fw-bold">
+                                    <Nav.Link as={Link} to="/login" className="text-light py-0 my-0">
+                                        Login
+                                    </Nav.Link>
+                                </Button>
                             )}
-
                         </div>
 
 
