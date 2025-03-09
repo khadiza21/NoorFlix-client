@@ -4,6 +4,7 @@ import blog1 from "../../assets/blog1.avif"
 import blog2 from "../../assets/blog3.webp" 
 import blog3 from "../../assets/blog2.jpg" 
 import blog4 from "../../assets/subscribe.webp" 
+import { useTheme } from "../theme/Theme";
 
 const blogPosts = [
   { id: 1, title: "New Releases on Noorflix", description: "Check out the latest releases on Noorflix this month!", image: blog1 },
@@ -13,14 +14,15 @@ const blogPosts = [
 ];
 
 const NoorflixBlog = () => {
+  const { isDarkMode} = useTheme();
   return (
-    <section className="noorflix-blog">
+    <section className={` ${isDarkMode ? "noorflix-blog" : "noorflix-blog-light"}`}>
       <Container>
         <h2 className="section-title">📝 Noorflix Blog</h2>
         <Row>
           {blogPosts.map((post) => (
             <Col key={post.id} xs={12} md={6} lg={3}>
-              <Card className="blog-card">
+              <Card className={`shadow-sm ${isDarkMode ? "blog-card" : "blog-card-light"}`}>
                 <Card.Img variant="top" src={post.image} alt={post.title} />
                 <Card.Body>
                   <Card.Title className="blog-title">{post.title}</Card.Title>

@@ -3,13 +3,14 @@ import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import './NavbarCompopnent.css'
 import { AuthContext } from "../Provider/AuthProvider";
+import { FaMoon, FaSun } from "react-icons/fa";
+import { useTheme } from "../theme/Theme";
 
 const NavbarComponent = () => {
-
-    const [showName, setShowName] = useState(false);
     const [showDropdown, setShowDropdown] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const { user, signOutUser, setUser } = useContext(AuthContext);
+    const { isDarkMode, setIsDarkMode} = useTheme();
     const getNavLinkClass = ({ isActive }) =>
         isActive ? "nav-link active" : "nav-link";
     const navigate = useNavigate();
@@ -24,6 +25,11 @@ const NavbarComponent = () => {
     }, []);
 
 
+   
+    const toggleTheme = () => {
+        setIsDarkMode(!isDarkMode);
+    };
+
     const handleSignOut = () => {
         signOutUser()
             .then(() => {
@@ -34,34 +40,34 @@ const NavbarComponent = () => {
                 console.log("error ", error);
             });
     };
-  
+
     console.log(user, 'user');
     return (
 
         <Navbar
             expand="lg"
-            bg="dark"
-            variant="dark"
+            bg={isDarkMode ? 'dark' : 'light'}
+            variant={isDarkMode ? 'dark' : 'light'}
             className={`py-3 custom-navbar ${scrolled ? "sticky" : ""} shadow-lg`}
         >
             <Container>
-                <Navbar.Brand to="/home" className="fw-bold text-danger">NoorFlix</Navbar.Brand>
+                <Navbar.Brand to="/home" className="fw-bold text-danger"><Nav.Link as={Link} to="https://noorflix.netlify.app/"  className={isDarkMode ? 'text-light' : 'text-dark'}>NoorFlix</Nav.Link></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto text-uppercase fw-semibold">
-                        <Nav.Link as={Link} to="/" className="text-light">Home</Nav.Link>
-                        <Nav.Link as={Link} to="/all-movies" className="text-light">All Movies</Nav.Link>
+                        <Nav.Link as={Link} to="/"  className={isDarkMode ? 'text-light' : 'text-dark'}>Home</Nav.Link>
+                        <Nav.Link as={Link} to="/all-movies"  className={isDarkMode ? 'text-light' : 'text-dark'}>All Movies</Nav.Link>
 
 
-                        {user && (<><Nav.Link as={Link} to="/add-movie" className="text-light">Add Movie</Nav.Link>  </>)}
-                        {user && (<><Nav.Link as={Link} to="/favorites" className="text-light">My Favorites</Nav.Link>  </>)}
+                        {user && (<><Nav.Link as={Link} to="/add-movie"  className={isDarkMode ? 'text-light' : 'text-dark'}>Add Movie</Nav.Link>  </>)}
+                        {user && (<><Nav.Link as={Link} to="/favorites"  className={isDarkMode ? 'text-light' : 'text-dark'}>My Favorites</Nav.Link>  </>)}
 
 
 
 
-                        <Nav.Link as={Link} to="/about" className="text-light">About</Nav.Link>
-                        <Nav.Link as={Link} to="/contact" className="text-light">Contact</Nav.Link>
-                        <Nav.Link as={Link} to="/blogs" className="text-light">Blogs</Nav.Link>
+                        <Nav.Link as={Link} to="/about"  className={isDarkMode ? 'text-light' : 'text-dark'}>About</Nav.Link>
+                        <Nav.Link as={Link} to="/contact"  className={isDarkMode ? 'text-light' : 'text-dark'}>Contact</Nav.Link>
+                        <Nav.Link as={Link} to="/blogs"  className={isDarkMode ? 'text-light' : 'text-dark'}>Blogs</Nav.Link>
 
 
 
@@ -82,7 +88,7 @@ const NavbarComponent = () => {
                                             style={{ cursor: "pointer" }}
                                         />
 
-                                        {/* Dropdown menu */}
+                                     
                                         {showDropdown && (
                                             <div
                                                 className="position-absolute bg-white text-dark p-2 rounded shadow"
@@ -110,6 +116,10 @@ const NavbarComponent = () => {
                                     </Nav.Link>
                                 </Button>
                             )}
+
+                            <button onClick={toggleTheme} className="toggle-btn ms-2">
+                                {isDarkMode ? <FaSun /> : <FaMoon />}
+                            </button>
                         </div>
 
 

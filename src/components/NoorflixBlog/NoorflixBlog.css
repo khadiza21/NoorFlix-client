@@ -1,70 +1,87 @@
 .noorflix-blog {
-    background: #111;
-    color: white;
-    padding: 100px 0;
-  }
-  
-  .section-title {
-    font-size: 2rem;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  .blog-card {
-    background: #222;
-    color: white;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden;
-  }
-  
-  .blog-card img {
-    border-radius: 10px;
-    height: 250px;
-    object-fit: cover;
-  }
-  
-  .blog-card:hover {
-    transform: scale(1.05);
-    
-  }
-  
-  .blog-title {
-    font-size: 1.2rem;
-    margin: 10px 0;
-  }
-  
-  .blog-desc {
-    font-size: 0.9rem;
-    color: #ffcc00;
-  }
-  
-  .read-more-btn {
-    background-color: crimson;
-    border: none;
-    font-size: 1rem;
-    padding: 8px 15px;
-    transition: background 0.3s ease;
-  }
-  
-  .read-more-btn:hover {
-    background-color: darkred;
-  }
-  
+  background: #111;
+  color: white;
+  padding: 100px 0;
+}
 
-  @media (max-width: 768px) {
-    .blog-card img {
-      height: 200px;
-    }
-    .blog-title {
-      font-size: 1rem;
-    }
-    .blog-desc {
-      font-size: 0.85rem;
-    }
-    .read-more-btn {
-      font-size: 0.9rem;
-    }
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.blog-card {
+  background: #222;
+  color: white;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+/* light */
+.noorflix-blog-light {
+  background: #fff;
+  color: black;
+  padding: 100px 0;
+}
+
+
+.blog-card-light {
+  background: #ebe9e9;
+  color: black;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  border:none;
+}
+
+
+
+
+
+.blog-card img, .blog-card-light  img {
+  border-radius: 10px;
+  height: 250px;
+  object-fit: cover;
+}
+
+.blog-card:hover ,.blog-card-light:hover{
+  transform: scale(1.05);
+}
+
+.blog-title {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.blog-desc {
+  font-size: 0.9rem;
+  color: #ffcc00;
+}
+
+.read-more-btn {
+  background-color: crimson;
+  border: none;
+  font-size: 1rem;
+  padding: 8px 15px;
+  transition: background 0.3s ease;
+}
+
+.read-more-btn:hover {
+  background-color: darkred;
+}
+
+@media (max-width: 768px) {
+  .blog-card img,.blog-card-light img {
+    height: 200px;
   }
-  
+  .blog-title {
+    font-size: 1rem;
+  }
+  .blog-desc {
+    font-size: 0.85rem;
+  }
+  .read-more-btn {
+    font-size: 0.9rem;
+  }
+}

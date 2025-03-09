@@ -1,10 +1,12 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
 import './NoorflixHero.css';
 import subscribe from '../../assets/subscribe.webp'
+import { useTheme } from "../theme/Theme";
 
 const NoorflixHero = () => {
+    const { isDarkMode} = useTheme();
     return (
-        <section className="noorflix-hero">
+        <section  className={` ${isDarkMode ? "noorflix-hero" : "noorflix-hero-light"}`} >
             <Container>
                 <Row className="align-items-center ">
                     <Col lg={6} className="text-center text-lg-start mb-5">

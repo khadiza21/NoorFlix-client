@@ -6,7 +6,7 @@ import { HashLoader } from "react-spinners";
 
 
 const Main = () => {
-
+   
     const [loading, setLoading] = useState(true);
     const location = useLocation();
     const hideHeaderFooter = ["/404", "*"];
@@ -15,9 +15,8 @@ const Main = () => {
     useEffect(() => {
         setTimeout(() => {
             setLoading(false);
-        }, 5000);
+        }, 3000);
     }, []);
-
 
     return (
 

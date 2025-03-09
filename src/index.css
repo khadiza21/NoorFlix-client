@@ -1,3 +1,38 @@
-body{
-    background-color: black !important;
+body {
+  background-color: black;
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme {
+  background-color: white;
+  color: black;
+}
+
+.toggle-btn {
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.toggle-btn:hover {
+  background-color: #555;
+}
+
+body.dark-theme .noorflix-blog {
+  background: #111;
+  color: white;
+}
+
+body.dark-theme .section-title {
+  color: white;
+}
+
+body.dark-theme .blog-card {
+  background: #222;
+  color: white;
 }
