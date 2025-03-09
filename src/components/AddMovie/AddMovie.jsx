@@ -46,7 +46,7 @@ const AddMovie = () => {
         }
         console.log(data)
 
-        const response = await fetch("http://localhost:5000/movies", {
+        const response = await fetch("https://noorflix-s.vercel.app/movies", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

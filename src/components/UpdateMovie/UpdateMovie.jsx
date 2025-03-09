@@ -24,7 +24,7 @@ const UpdateMovie = () => {
   useEffect(() => {
     const fetchMovie = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/movies/${id}`);
+        const response = await fetch(`https://noorflix-s.vercel.app/movies/${id}`);
         const movie = await response.json();
 
         if (response.ok) {
@@ -52,7 +52,7 @@ const UpdateMovie = () => {
     data.duration = Number(data.duration);
     data.genre = [data.genre];
 
-    const response = await fetch(`http://localhost:5000/movies/${id}`, {
+    const response = await fetch(`https://noorflix-s.vercel.app/movies/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

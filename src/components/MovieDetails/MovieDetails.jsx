@@ -14,7 +14,7 @@ const MovieDetails = () => {
     const [isFavorite, setIsFavorite] = useState(false);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/movies/${id}`)
+        fetch(`https://noorflix-s.vercel.app/movies/${id}`)
             .then((res) => res.json())
             .then((data) => {
                 setMovie(data);
@@ -22,7 +22,7 @@ const MovieDetails = () => {
             });
 
         if (user) {
-            fetch(`http://localhost:5000/favorites/${user.email}`)
+            fetch(`https://noorflix-s.vercel.app/favorites/${user.email}`)
                 .then((res) => res.json())
                 .then((favorites) => {
                     if (favorites.length > 0) {
@@ -42,7 +42,7 @@ const MovieDetails = () => {
         if (!user) return toast.error("You must be logged in to add to favorites.");
 
         try {
-            const response = await fetch("http://localhost:5000/favorites", {
+            const response = await fetch("https://noorflix-s.vercel.app/favorites", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -84,7 +84,7 @@ const MovieDetails = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    const response = await fetch(`http://localhost:5000/movies/${id}`, { method: "DELETE" });
+                    const response = await fetch(`https://noorflix-s.vercel.app/movies/${id}`, { method: "DELETE" });
 
                     if (response.ok) {
                         Swal.fire("Deleted!", "The movie has been removed.", "success");

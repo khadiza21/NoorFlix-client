@@ -11,7 +11,7 @@ const FeaturedMovies = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/movies")
+    fetch("https://noorflix-s.vercel.app/movies")
       .then((res) => res.json())
       .then((data) => {
         const sortedMovies = data.sort((a, b) => b.rating - a.rating).slice(0, 6);

@@ -12,7 +12,7 @@ const FavoriteMovies = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/favorites/${user.email}`)
+            fetch(`https://noorflix-s.vercel.app/favorites/${user.email}`)
                 .then((res) => res.json())
                 .then((data) => {
                     setFavorites(data);
@@ -39,7 +39,7 @@ const FavoriteMovies = () => {
 
         if (result.isConfirmed) {
         try {
-            const response = await fetch(`http://localhost:5000/favorites/${id}`, {
+            const response = await fetch(`https://noorflix-s.vercel.app/favorites/${id}`, {
                 method: "DELETE",
             });
 
