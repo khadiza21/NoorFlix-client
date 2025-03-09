@@ -1,6 +1,6 @@
 # 🎬 Noorflix - Your Ultimate Streaming Experience  
 
-🚀 **Live Site:** [Visit Noorflix](https://your-live-site-url.com)  
+🚀 **Live Site:** [Visit Noorflix](https://noorflix.netlify.app/)  
 
 ## ✨ Features 
   
