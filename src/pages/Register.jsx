@@ -27,7 +27,7 @@ const Register = () => {
             .then(result => {
                 console.log(result.user);
                 const newUser = { name, email, photo }
-                fetch('http://localhost:5000/users',
+                fetch('https://noorflix-s.vercel.app/users',
                     {
                         method: 'POST',
                         headers: {
@@ -68,7 +68,7 @@ const Register = () => {
                     photo: user.photoURL,
                 };
 
-                fetch("http://localhost:5000/users", {
+                fetch("https://noorflix-s.vercel.app/users", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(newUser),
