@@ -17,7 +17,7 @@ const Login = () => {
     const navigate = useNavigate();
     const { signInUser, signWithGoogle, setUser } = useContext(AuthContext);
     const location = useLocation();
-    
+
 
     const onSubmit = (data) => {
 
@@ -35,7 +35,7 @@ const Login = () => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log(errorCode, errorMessage);
-                setErrorMessage("Invalid email or password!"); 
+                setErrorMessage("Invalid email or password!");
 
             });
 
@@ -48,6 +48,22 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
                 setUser(user)
+                const newUser = {
+                    name: user.displayName,
+                    email: user.email,
+                    photo: user.photoURL,
+                };
+
+                fetch("http://localhost:5000/users", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(newUser),
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log("User saved to database:", data);
+                    })
+                    .catch((err) => console.log("Database error:", err));
                 const redirectTo = location.state?.from || '/';
                 navigate(redirectTo, { replace: true });
                 toast.success("Google Sign-In Successful!");
@@ -57,6 +73,8 @@ const Login = () => {
                 toast.error(error.message)
             });
     }
+
+
 
 
     return (
