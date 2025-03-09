@@ -3,6 +3,7 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 import { Container, Card, Spinner, Button } from "react-bootstrap";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 const MovieDetails = () => {
     const { id } = useParams();
@@ -21,11 +22,14 @@ const MovieDetails = () => {
             });
 
         if (user) {
-            fetch(`http://localhost:5000/favorites?userEmail=${user.email}&movieId=${id}`)
+            fetch(`http://localhost:5000/favorites/${user.email}`)
                 .then((res) => res.json())
                 .then((favorites) => {
                     if (favorites.length > 0) {
-                        setIsFavorite(true);
+                        const movieIsFavorite = favorites.some(fav => fav.movieId === id);
+                        setIsFavorite(movieIsFavorite);
+                    } else {
+                        setIsFavorite(false)
                     }
                 });
         }
@@ -33,33 +37,6 @@ const MovieDetails = () => {
     }, [id, user]);
 
 
-    const handleDeleteMovie = async () => {
-        Swal.fire({
-            title: "Are you sure?",
-            text: "This action cannot be undone!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#d33",
-            cancelButtonColor: "#3085d6",
-            confirmButtonText: "Yes, delete it!",
-        }).then(async (result) => {
-            if (result.isConfirmed) {
-                try {
-                    const response = await fetch(`http://localhost:5000/movies/${id}`, { method: "DELETE" });
-
-                    if (response.ok) {
-                        Swal.fire("Deleted!", "The movie has been removed.", "success");
-                        navigate("/all-movies");
-                    } else {
-                        toast.error("Failed to delete movie.");
-                    }
-                } catch (error) {
-                    console.error("Error deleting movie:", error);
-                    toast.error("Something went wrong.");
-                }
-            }
-        });
-    };
 
     const handleAddToFavorite = async () => {
         if (!user) return toast.error("You must be logged in to add to favorites.");
@@ -93,6 +70,39 @@ const MovieDetails = () => {
     };
 
 
+
+
+    const handleDeleteMovie = async () => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "This action cannot be undone!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "#3085d6",
+            confirmButtonText: "Yes, delete it!",
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                try {
+                    const response = await fetch(`http://localhost:5000/movies/${id}`, { method: "DELETE" });
+
+                    if (response.ok) {
+                        Swal.fire("Deleted!", "The movie has been removed.", "success");
+                        navigate("/all-movies");
+                    } else {
+                        toast.error("Failed to delete movie.");
+                    }
+                } catch (error) {
+                    console.error("Error deleting movie:", error);
+                    toast.error("Something went wrong.");
+                }
+            }
+        });
+    };
+
+
+
+
     if (loading) return <Spinner animation="border" className="d-block mx-auto my-5" />;
 
     return (
@@ -114,13 +124,13 @@ const MovieDetails = () => {
                 </Card>
 
                 <div className="text-center mt-4">
-                    <Button variant="danger" size="lg" className="me-3" onClick={handleDeleteMovie}>
+                    <Button variant="danger" size="lg" className="me-3 my-2" onClick={handleDeleteMovie}>
                         Delete Movie
                     </Button>
                     <Button
                         variant={isFavorite ? "success" : "warning"}
                         size="lg"
-                        className="me-3"
+                        className="me-3 my-2"
                         onClick={handleAddToFavorite}
                         disabled={isFavorite}
                     >
@@ -128,7 +138,7 @@ const MovieDetails = () => {
                     </Button>
                     <Button
                         variant="warning"
-                           className="me-3"
+                        className="me-3 my-2"
                         size='lg'
                         as={Link}
                         to={`/update-movie/${movie._id}`}
@@ -136,7 +146,7 @@ const MovieDetails = () => {
                         Update Movie
                     </Button>
 
-                    <Button  variant="primary" size="lg" onClick={() => navigate("/all-movies")}>
+                    <Button className="my-2" variant="primary" size="lg" onClick={() => navigate("/all-movies")}>
                         See All Movies
                     </Button>
                 </div>

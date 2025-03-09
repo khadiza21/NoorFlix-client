@@ -1,7 +1,7 @@
 import { useContext, useRef, useState } from "react";
 import { Container, Form, Button, Card, InputGroup } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../components/Provider/AuthProvider";
 import { toast } from "react-toastify";
@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 const Register = () => {
 
     const navigate = useNavigate();
+    const location = useLocation();
     const [showPassword, setShowPassword] = useState(false);
     const { createUser, signOutUser, signWithGoogle } = useContext(AuthContext);
 
@@ -43,7 +44,8 @@ const Register = () => {
                     })
 
                 toast.success("Registration Successful!");
-                navigate(location?.state ? location.state : '/')
+                const redirectTo = location.state?.from || '/';
+                navigate(redirectTo, { replace: true });
 
             })
             .catch(error => {
@@ -78,7 +80,8 @@ const Register = () => {
                     .catch((err) => console.log("Database error:", err));
 
                 toast.success("Google Login Successful!");
-                navigate(location?.state ? location.state : '/')
+                const redirectTo = location.state?.from || '/';
+                navigate(redirectTo, { replace: true });
             })
             .catch((error) => {
                 console.error("Google Login Error:", error);

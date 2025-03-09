@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button, Container, Form, InputGroup } from "react-bootstrap";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../components/Provider/AuthProvider";
 
@@ -16,6 +16,8 @@ const Login = () => {
     const [errorMessage, setErrorMessage] = useState("");
     const navigate = useNavigate();
     const { signInUser, signWithGoogle, setUser } = useContext(AuthContext);
+    const location = useLocation();
+    
 
     const onSubmit = (data) => {
 
@@ -25,7 +27,8 @@ const Login = () => {
                 const user = userCredential.user;
                 setUser(user);
                 toast.success('Login Successful! Redirecting...');
-                navigate(location.state?.from || "/", { replace: true });
+                const redirectTo = location.state?.from || '/';
+                navigate(redirectTo, { replace: true });
                 setErrorMessage("");
             })
             .catch((error) => {
@@ -45,7 +48,8 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
                 setUser(user)
-                navigate(location?.state ? location.state : '/')
+                const redirectTo = location.state?.from || '/';
+                navigate(redirectTo, { replace: true });
                 toast.success("Google Sign-In Successful!");
                 setErrorMessage("");
             }).catch((error) => {

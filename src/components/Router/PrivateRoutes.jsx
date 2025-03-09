@@ -4,8 +4,8 @@ import { Spinner } from "react-bootstrap";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const PrivateRoutes = ({ children }) => {
-    const { user, loading } = useContext(AuthContext);
 
+    const { user, loading } = useContext(AuthContext);
     const location = useLocation();
 
  
@@ -24,7 +24,7 @@ const PrivateRoutes = ({ children }) => {
         return children;
 
     }
-    return <Navigate to="/login" state={{ from: location.pathname }}  replace />;
+    return <Navigate to="/login" state={{ from: location }}  replace />;
 };
 
 export default PrivateRoutes;
