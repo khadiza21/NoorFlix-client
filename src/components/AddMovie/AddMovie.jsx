@@ -4,6 +4,7 @@ import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { Rating } from "react-simple-star-rating";
 import { AuthContext } from "../Provider/AuthProvider";
+import { useTheme } from "../theme/Theme";
 
 
 
@@ -22,8 +23,7 @@ const AddMovie = () => {
             rating: 0,
         }
     });
-
-
+    const { isDarkMode } = useTheme();
     const ratingValue = watch("rating");
     const { user } = useContext(AuthContext);
 
@@ -69,10 +69,10 @@ const AddMovie = () => {
         <Container className="mt-5 py-5">
             <Row className="justify-content-center">
                 <Col md={6} sm={12}>
-                    <h2 className="text-center text-light">Add Movie</h2>
+                    <h2 className={` text-center ${isDarkMode ? "text-light" : "text-dark"}`}>Add Movie</h2>
 
                     <Form.Group className="mb-3">
-                        <Form.Label className="text-light">Email</Form.Label>
+                        <Form.Label className={isDarkMode ? 'text-light' : 'text-dark'}>Email</Form.Label>
                         <Form.Control
                             type="email"
                             placeholder="Enter email"
@@ -86,7 +86,7 @@ const AddMovie = () => {
 
                     <Form onSubmit={handleSubmit(onSubmit)}>
                         <Form.Group>
-                            <Form.Label className="text-light mt-3">Movie Poster URL</Form.Label>
+                            <Form.Label className={`mt-3 text-center ${isDarkMode ? "text-light" : "text-dark"}`}>Movie Poster URL</Form.Label>
                             <Form.Control
                                 type="text"
                                 {...register("moviePoster", {
@@ -100,9 +100,9 @@ const AddMovie = () => {
                             {errors.moviePoster && <p className="text-danger">{errors.moviePoster.message}</p>}
                         </Form.Group>
 
-                
+
                         <Form.Group>
-                            <Form.Label className="text-light mt-3">Movie Title</Form.Label>
+                            <Form.Label className={`mt-3 text-center ${isDarkMode ? "text-light" : "text-dark"}`}>Movie Title</Form.Label>
                             <Form.Control
                                 type="text"
                                 {...register("movieTitle", {
@@ -114,7 +114,7 @@ const AddMovie = () => {
                         </Form.Group>
 
                         <Form.Group>
-                            <Form.Label className="text-light mt-3">Genre</Form.Label>
+                            <Form.Label className={`mt-3 text-center ${isDarkMode ? "text-light" : "text-dark"}`}>Genre</Form.Label>
                             <Form.Select {...register("genre", { required: "Genre is required" })}>
                                 <option value="">Select Genre</option>
                                 <option value="Comedy">Comedy</option>
@@ -128,7 +128,7 @@ const AddMovie = () => {
 
                         {/* Duration */}
                         <Form.Group>
-                            <Form.Label className="text-light mt-3">Duration (in minutes)</Form.Label>
+                            <Form.Label className={`mt-3 text-center ${isDarkMode ? "text-light" : "text-dark"}`}>Duration (in minutes)</Form.Label>
                             <Form.Control
                                 type="number"
                                 {...register("duration", {
@@ -141,7 +141,7 @@ const AddMovie = () => {
 
                         {/* Release Year */}
                         <Form.Group>
-                            <Form.Label className="text-light mt-3">Release Year</Form.Label>
+                            <Form.Label className={`mt-3 text-center ${isDarkMode ? "text-light" : "text-dark"}`}>Release Year</Form.Label>
                             <Form.Select {...register("releaseYear", { required: "Release year is required" })}>
                                 <option value="">Select Year</option>
                                 <option value="2024">2024</option>
@@ -154,17 +154,17 @@ const AddMovie = () => {
 
                         {/* Rating */}
                         <Form.Group>
-                            <Form.Label className="text-light mt-3">Rating</Form.Label>
+                            <Form.Label className={`mt-3 text-center ${isDarkMode ? "text-light" : "text-dark"}`}>Rating</Form.Label>
                             <Rating
                                 onClick={handleRating}
-                           
+
                             />
                             {errors.rating && <p className="text-danger">{errors.rating.message}</p>}
                         </Form.Group>
 
                         {/* Summary */}
                         <Form.Group>
-                            <Form.Label className="text-light mt-3">Summary</Form.Label>
+                            <Form.Label className={`mt-3 text-center ${isDarkMode ? "text-light" : "text-dark"}`}>Summary</Form.Label>
                             <Form.Control
                                 as="textarea"
                                 rows={3}

@@ -1,15 +1,17 @@
 import { Accordion, Card, Col, Container, Image, Row } from 'react-bootstrap';
 import './About.css'
+import { useTheme } from '../theme/Theme';
 
 const AboutContent = () => {
+    const { isDarkMode } = useTheme();
     return (
         <div>
             <Container className="my-5">
 
                 <Row className="text-center mb-5 ">
                     <Col>
-                        <h2 className="fw-bold text-light mb-5">About Noorflix</h2>
-                        <p className="text-light">
+                        <h2    className={`fw-bold text-light mb-5 ${isDarkMode ? "text-light" : "text-dark"}`} >About Noorflix</h2>
+                        <p className={isDarkMode ? 'text-light' : 'text-dark'}>
                             Noorflix is your ultimate destination for streaming high-quality content. We bring you the best movies, TV shows, and exclusive series at your fingertips.
                         </p>
                     </Col>
@@ -29,8 +31,8 @@ const AboutContent = () => {
                         />
                     </Col>
                     <Col md={6} className='pr-0'>
-                        <h2 className="fw-bold text-light">About Us</h2>
-                        <p className="text-light">
+                        <h2 className={`text-center fw-bold ${isDarkMode ? "text-light" : "text-dark"}`}>About Us</h2>
+                        <p className={isDarkMode ? 'text-light' : 'text-dark'}>
                             We are committed to providing the best services to our customers.
                             Our team works tirelessly to bring you the latest and greatest
                             solutions tailored to your needs.
@@ -41,7 +43,7 @@ const AboutContent = () => {
                             Our team works tirelessly to bring you the latest and greatest
                             solutions tailored to your needs.
                         </p>
-                        <p className="text-light">
+                        <p className={isDarkMode ? 'text-light' : 'text-dark'}>
                             With years of experience and a passion for excellence, we ensure
                             quality and customer satisfaction in everything we do.  We are committed to providing the best services to our customers.
                             Our team works tirelessly to bring you the latest and greatest

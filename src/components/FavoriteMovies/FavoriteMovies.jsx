@@ -3,12 +3,16 @@ import { Container, Card, Button, Spinner, Row, Col } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { useTheme } from "../theme/Theme";
 
 
 const FavoriteMovies = () => {
     const { user } = useContext(AuthContext);
     const [favorites, setFavorites] = useState([]);
     const [loading, setLoading] = useState(true);
+
+    const { isDarkMode } = useTheme();
+
 
     useEffect(() => {
         if (user) {
@@ -61,7 +65,7 @@ const FavoriteMovies = () => {
 
     return (
         <Container className="py-5 text-white " >
-            <h2 className="text-center mb-4">My Favorite Movies 🎬</h2>
+            <h2  className={`mb-4 text-center ${isDarkMode ? "text-light" : "text-dark"}`}>My Favorite Movies 🎬</h2>
             {favorites.length === 0 ? (
                 <p className="text-center text-muted">No favorite movies found.</p>
             ) : (

@@ -17,6 +17,8 @@ const Theme = ({ children }) => {
         } else {
             document.body.classList.remove("dark-theme");
             localStorage.setItem("theme", "light");
+            document.body.classList.remove("dark-theme");
+            localStorage.setItem("theme", "light");
         }
     }, [isDarkMode]);
 

@@ -10,8 +10,10 @@ import {
 
 import notFound from "../../assets/n1.gif";
 import notFound1 from "../../assets/n6.gif";
+import { useTheme } from "../theme/Theme";
 
 const NotFound = () => {
+  const { isDarkMode } = useTheme(); 
   return (
     <div className="w-100 not my-5">
       <Container className="container my-5 py-5">
@@ -32,10 +34,10 @@ const NotFound = () => {
             <div className="px-4  text-center ms-4">
               <img src={notFound1} alt="" className="my-3 h-50 w-50 rounded" />
         
-                <h2 className="my-2 fw-bold  server text-light">404! SERVER ERROR! </h2>
+                <h2  className={`my-2 fw-bold  server ${isDarkMode ? "text-light" : "text-dark"}`}>404! SERVER ERROR! </h2>
         
               
-                <h4 className="mt-3 not text-light">Not Found In Server</h4>
+                <h4  className={`mt-3 not  ${isDarkMode ? "text-light" : "text-dark"}`}>Not Found In Server</h4>
              
               <Form className="d-flex my-3">
                 <FormControl

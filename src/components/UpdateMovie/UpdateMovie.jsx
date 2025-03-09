@@ -4,6 +4,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { useTheme } from "../theme/Theme";
 
 const UpdateMovie = () => {
   const { id } = useParams();
@@ -20,6 +21,8 @@ const UpdateMovie = () => {
   } = useForm();
 
   const [loading, setLoading] = useState(true);
+  
+  const { isDarkMode } = useTheme();
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -72,17 +75,17 @@ const UpdateMovie = () => {
     <Container className="mt-5 py-5">
       <Row className="justify-content-center">
         <Col md={6} sm={12}>
-          <h2 className="text-center text-light">Update Movie</h2>
+          <h2   className={`text-center ${isDarkMode ? "text-light" : "text-dark"}`} >Update Movie</h2>
 
           <Form onSubmit={handleSubmit(onSubmit)}>
             {/* User Email (Read-Only) */}
             <Form.Group>
-              <Form.Label className="text-light mt-3">Your Email</Form.Label>
+              <Form.Label     className={`mt-3 fw-bold ${isDarkMode ? "text-light" : "text-dark"}`}>Your Email</Form.Label>
               <Form.Control type="email" {...register("email")} readOnly />
             </Form.Group>
 
             <Form.Group>
-              <Form.Label className="text-light mt-3">
+              <Form.Label     className={`mt-3 fw-bold ${isDarkMode ? "text-light" : "text-dark"}`}>
                 Movie Poster URL
               </Form.Label>
               <Form.Control
@@ -101,7 +104,7 @@ const UpdateMovie = () => {
             </Form.Group>
 
             <Form.Group>
-              <Form.Label className="text-light mt-3">Movie Title</Form.Label>
+              <Form.Label     className={`mt-3 fw-bold ${isDarkMode ? "text-light" : "text-dark"}`}>Movie Title</Form.Label>
               <Form.Control
                 type="text"
                 {...register("movieTitle", {
@@ -115,7 +118,7 @@ const UpdateMovie = () => {
             </Form.Group>
 
             <Form.Group>
-              <Form.Label className="text-light mt-3">Genre</Form.Label>
+              <Form.Label     className={`mt-3 fw-bold ${isDarkMode ? "text-light" : "text-dark"}`}>Genre</Form.Label>
               <Form.Select
                 {...register("genre", { required: "Genre is required" })}
               >
@@ -132,7 +135,7 @@ const UpdateMovie = () => {
             </Form.Group>
 
             <Form.Group>
-              <Form.Label className="text-light mt-3">
+              <Form.Label     className={`mt-3 fw-bold ${isDarkMode ? "text-light" : "text-dark"}`}>
                 Duration (in minutes)
               </Form.Label>
               <Form.Control
@@ -148,7 +151,7 @@ const UpdateMovie = () => {
             </Form.Group>
 
             <Form.Group>
-              <Form.Label className="text-light mt-3">Release Year</Form.Label>
+              <Form.Label     className={`mt-3 fw-bold ${isDarkMode ? "text-light" : "text-dark"}`}>Release Year</Form.Label>
               <Form.Select
                 {...register("releaseYear", {
                   required: "Release year is required",
@@ -166,7 +169,7 @@ const UpdateMovie = () => {
             </Form.Group>
 
             <Form.Group>
-              <Form.Label className="text-light mt-3">Rating</Form.Label>
+              <Form.Label     className={`mt-3 fw-bold ${isDarkMode ? "text-light" : "text-dark"}`}>Rating</Form.Label>
               <Form.Control
                 type="number"
                 {...register("rating", { required: "Rating is required" })}
@@ -177,7 +180,7 @@ const UpdateMovie = () => {
             </Form.Group>
 
             <Form.Group>
-              <Form.Label className="text-light mt-3">Summary</Form.Label>
+              <Form.Label     className={`mt-3 fw-bold ${isDarkMode ? "text-light" : "text-dark"}`}>Summary</Form.Label>
               <Form.Control
                 as="textarea"
                 rows={3}
